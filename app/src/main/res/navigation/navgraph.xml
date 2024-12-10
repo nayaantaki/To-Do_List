@@ -8,21 +8,35 @@
     <fragment
         android:id="@+id/allTasks"
         android:name="com.example.to_dolist.AllTasks"
-        android:label="fragment_all_tasks"
-        tools:layout="@layout/fragment_all_tasks" />
+        android:label="All Tasks"
+        tools:layout="@layout/fragment_all_tasks" >
+        <action
+            android:id="@+id/action_allTasks_to_addTasks"
+            app:destination="@id/addTasks" />
+        <action
+            android:id="@+id/action_allTasks_to_filterTasksDate"
+            app:destination="@id/filterTasksDate" />
+        <action
+            android:id="@+id/action_allTasks_to_filterTasksAlphabetically"
+            app:destination="@id/filterTasksAlphabetically" />
+    </fragment>
     <fragment
         android:id="@+id/addTasks"
         android:name="com.example.to_dolist.AddTasks"
-        android:label="fragment_add_tasks"
-        tools:layout="@layout/fragment_add_tasks" />
+        android:label="Add Tasks"
+        tools:layout="@layout/fragment_add_tasks" >
+        <action
+            android:id="@+id/action_addTasks_to_allTasks"
+            app:destination="@id/allTasks" />
+    </fragment>
     <fragment
         android:id="@+id/filterTasksDate"
         android:name="com.example.to_dolist.FilterTasksDate"
-        android:label="fragment_filter_tasks_date"
+        android:label="Tasks Sorted By Date"
         tools:layout="@layout/fragment_filter_tasks_date" />
     <fragment
         android:id="@+id/filterTasksAlphabetically"
         android:name="com.example.to_dolist.FilterTasksAlphabetically"
-        android:label="fragment_filter_tasks_alphabetically"
+        android:label="Tasks Sorted Alphabetically"
         tools:layout="@layout/fragment_filter_tasks_alphabetically" />
 </navigation>
