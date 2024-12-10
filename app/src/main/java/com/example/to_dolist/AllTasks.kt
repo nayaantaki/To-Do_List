@@ -17,23 +17,22 @@ class AllTasks : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_all_tasks, container, false)
-
-        val parentLayout = view.findViewById<LinearLayout>(R.id.tasksLayout)
-
-        val args: Bundle? = arguments
-        if (args != null) {
-            val task: TextView = TextView(context).apply {
-                text = args.getString("taskName") + args.getString("taskDate")
-            }
-            parentLayout.addView(task)
-        }
-
         return inflater.inflate(R.layout.fragment_all_tasks, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val activity: MainActivity = context as MainActivity
+        val taskList: MutableList<String> = activity.getTaskList()
+        val taskLayout: LinearLayout = view.findViewById(R.id.tasksLayout)
+
+        for (task in taskList){
+            val taskTextView: TextView = TextView(context)
+            taskTextView.text = task
+            taskLayout.addView(taskTextView)
+
+        }
 
         val navController: NavController = view.findNavController();
 

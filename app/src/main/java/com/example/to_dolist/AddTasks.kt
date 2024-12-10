@@ -34,11 +34,11 @@ class AddTasks : Fragment() {
             val taskNameInput: EditText = view.findViewById(R.id.TaskNameInput)
             val taskDateInput: EditText = view.findViewById(R.id.TaskDateInput)
 
-            val passedData: Bundle = Bundle()
+            val activity: MainActivity = context as MainActivity
+            val taskItem: String = taskNameInput.text.toString() + taskDateInput.text.toString()
+            activity.setTaskItem(taskItem)
 
-            passedData.putString("taskName", taskNameInput.text.toString())
-            passedData.putString("taskDate", taskDateInput.text.toString())
-            navController.navigate(R.id.action_addTasks_to_allTasks, passedData)
+            navController.navigate(R.id.action_addTasks_to_allTasks)
         }
     }
 }

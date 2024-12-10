@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfig: AppBarConfiguration
     private lateinit var navController: NavController
 
+    private var taskList = mutableListOf<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,5 +36,13 @@ class MainActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         val success: Boolean = navController.navigateUp(appBarConfig)
         return success || super.onSupportNavigateUp()
+    }
+
+    fun getTaskList(): MutableList<String> {
+        return taskList
+    }
+
+    fun setTaskItem(newTask: String){
+        taskList.add(newTask)
     }
 }
