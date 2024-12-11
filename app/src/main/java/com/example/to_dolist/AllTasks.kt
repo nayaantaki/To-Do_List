@@ -30,6 +30,8 @@ class AllTasks : Fragment() {
         for (task in taskList){
             val taskTextView: TextView = TextView(context)
             taskTextView.text = task
+            taskTextView.textSize = 24.0F
+
             taskLayout.addView(taskTextView)
 
         }

@@ -35,7 +35,7 @@ class AddTasks : Fragment() {
             val taskDateInput: EditText = view.findViewById(R.id.TaskDateInput)
 
             val activity: MainActivity = context as MainActivity
-            val taskItem: String = taskNameInput.text.toString() + taskDateInput.text.toString()
+            val taskItem: String = taskNameInput.text.toString() + ": " + taskDateInput.text.toString()
             activity.setTaskItem(taskItem)
 
             navController.navigate(R.id.action_addTasks_to_allTasks)

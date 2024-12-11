@@ -45,4 +45,13 @@ class MainActivity : AppCompatActivity() {
     fun setTaskItem(newTask: String){
         taskList.add(newTask)
     }
+
+    fun sortTaskListAlpha() {
+        taskList.sort()
+    }
+
+    fun sortTaskListDate() {
+        taskList.sortBy { it.substring(it.indexOf(":")) }
+    }
+
 }
